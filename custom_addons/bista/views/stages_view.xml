@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+      <record model="ir.ui.view" id="bista_stages">
+          <field name="name">bista stages</field>
+          <field name="model">training_stages</field>
+          <field name="arch" type="xml">
+              <tree>
+                  <field name="name"/>
+                  <field name="batch"/>
+                  <field name="training"/>
+              </tree>
+          </field>
+      </record>
+
+      <record model="ir.ui.view" id="bista_stages_form">
+          <field name="name">bista stages form</field>
+          <field name="model">training_stages</field>
+          <field name="arch" type="xml">
+              <form>
+                  <header>
+                      <button name="draft" type="object" string="Draft"  class="oe_highlight"/>
+                      <button name="progress" type="object" string="Progress"  class="oe_highlight"/>
+                      <button name="done" type="object" string="Done" class="oe_highlight"/>
+                      <field name="status" widget="statusbar" statusbar_visible="draft,progress,done"/>
+                  </header>
+                  <sheet>
+                      <widget name="web_ribbon" text="Draft" bg_color="bg-primary" attrs="{'invisible': [('status', '!=', 'draft')]}"/>
+                      <widget name="web_ribbon" text="Progress" bg_color="bg-warning" attrs="{'invisible': [('status', '!=', 'progress')]}"/>
+                      <widget name="web_ribbon" text="Done" bg_color="bg-success" attrs="{'invisible': [('status', '!=', 'done')]}"/>
+                      <group>
+                          <field name="name" class="oe_inline" style="max-width: 1150px; width:800px"/>
+                      </group>
+                      <group>
+                      <group>
+                          <field name="training"/>
+                      </group>
+                      <group>
+                          <field name="batch"/>
+                      </group>
+                      </group>
+                  </sheet>
+              </form>
+          </field>
+      </record>
+
+      <record model="ir.actions.act_window" id="bista.action_window_stages">
+          <field name="name">Bista Stages</field>
+          <field name="res_model">training_stages</field>
+          <field name="view_mode">tree,form</field>
+      </record>
+
+      <menuitem name="Stages" id="bista_menu_1_list_stages" parent="bista.menu_2_stages"
+              action="bista.action_window_stages"/>
+
+    </data>
+</odoo>

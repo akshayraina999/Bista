@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_trainee_trainee,bista_trainee.bista_trainee,model_bista_trainee_bista_trainee,base.group_user,1,1,1,1
+access_trainer_trainer,bista_trainer.bista_trainer,model_bista_trainer_bista_trainer,base.group_user,1,1,1,1
+access_designation_designation,bista_designation.bista_designation,model_bista_designation_bista_designation,base.group_user,1,1,1,1
+access_location,location.location,model_location_location,base.group_user,1,1,1,1
+access_subjects,subjects.subjects,model_subjects_subjects,base.group_user,1,1,1,1
+access_training_topic,training_topic.training_topic,model_training_topic_training_topic,base.group_user,1,1,1,1
+access_stages,training_stages.training_stages,model_training_stages,base.group_user,1,1,1,1
+access_batch,bista_batch.bista_batch,model_bista_batch,base.group_user,1,1,1,1

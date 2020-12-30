@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="bista_topics">
+          <field name="name">bista topic list</field>
+          <field name="model">training_topic.training_topic</field>
+          <field name="arch" type="xml">
+             <tree>
+                 <field name="topic_name"/>
+                 <field name="topic_sub" readonly="1"/>
+             </tree>
+          </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="bista_training_subject_action_window">
+      <field name="name">TRAINING SUBJECTS</field>
+      <field name="res_model">training_topic.training_topic</field>
+      <field name="view_mode">tree,form</field>
+      </record>
+
+
+      <menuitem name="Topic" id="bista_training_subject" parent="bista.menu_2_subjects"
+              action="bista_training_subject_action_window"/>
+    </data>
+</odoo>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="bista_designation_list">
+            <field name="name">bista_designation list</field>
+            <field name="model">bista_designation.bista_designation</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="d_name"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="bista_designation_form">
+            <field name="name">bista_designation form</field>
+            <field name="model">bista_designation.bista_designation</field>
+            <field name="arch" type="xml">
+                <form string="designation">
+                    <sheet>
+                        <group>
+                            <field name="d_name" placeholder="Name"/>
+                            <notebook>
+                              <page string="Tasks">
+                                <field name="trainee_ids">
+                                  <tree string="Trainee" editable="bottom">
+                                    <field name="trainee_first_name"/>
+                                    <field name="trainee_last_name"/>
+                                  </tree>
+                                </field>
+                              </page>
+                              <page string="Schedule">
+                              </page>
+                            </notebook>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="bista_designation_action_window">
+            <field name="name">Trainee Designation Window</field>
+            <field name="res_model">bista_designation.bista_designation</field>
+            <field name="view_mode">form,tree</field>
+        </record>
+
+        <menuitem name="Designation" id="bista_designation" parent="bista.menu_1_trainee" action="bista_designation_action_window"/>
+    </data>
+</odoo>

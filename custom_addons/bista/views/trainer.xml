@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="bista_trainer_list">
+      <field name="name">bista list</field>
+      <field name="model">bista_trainer.bista_trainer</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="trainer_first_name"/>
+          <field name="trainer_last_name"/>
+          <field name="image"/>
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- explicit kanban view -->
+    <record id="trainer_kanban" model="ir.ui.view">
+            <field name="name">bista_trainer kanban</field>
+            <field name="model">bista_trainer.bista_trainer</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="trainer_first_name"/>
+                    <field name="trainer_last_name"/>
+                    <field name="name"/>
+                    <field name="image"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <t t-if="record.image.raw_value">
+                                    <div class="o_kanban_image_fill_left d-none d-md-block"
+                                        t-attf-style="background-image:url('#{kanban_image('bista_trainer.bista_trainer', 'image', record.id.raw_value)}')"/>
+                                </t>
+                                <t t-else="">
+                                    <img class="o_kanban_image" alt="Avatar" t-att-src='_s + "/base/static/img/avatar_grey.png"'/>
+                                </t>
+                                <div class="oe_kanban_details">
+                                    <strong class="o_kanban_record_title"><field name="display_name"/></strong>
+                                    <div class="o_kanban_tags_section"/>
+                                    <ul>
+                                        <li>First Name : <field name="trainer_first_name"/></li>
+                                        <li>Last Name : <field name="trainer_last_name"/></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+    </record>
+
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="bista.action_window">
+      <field name="name">Bista Trainer</field>
+      <field name="res_model">bista_trainer.bista_trainer</field>
+      <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="bista.action_server">
+      <field name="name">bista server</field>
+      <field name="model_id" ref="model_bista_bista"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+
+<!--    <menuitem name="Bista" id="bista.menu_root"/>-->
+
+    <!-- menu categories -->
+
+<!--    <menuitem name="Trainee" id="bista.menu_1_trainee" parent="bista.menu_root"/>-->
+<!--    <menuitem name="Trainer" id="bista.menu_2_trainer" parent="bista.menu_root"/>-->
+
+    <!-- actions -->
+
+    <menuitem name="Trainer List" id="bista_menu_1_list_trainer" parent="bista.menu_2_trainer"
+              action="bista.action_window"/>
+
+  </data>
+</odoo>
