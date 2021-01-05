@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="bista_training_view_list">
+            <field name="name">Bista Training View</field>
+            <field name="model">bista_training.bista_training</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="doj"/>
+                    <field name="trainee_ids"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="bista_training_view_form">
+            <field name="name">Bista Training Form View</field>
+            <field name="model">bista_training.bista_training</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="doj"/>
+                            </group>
+                            <group>
+                                <field name="students"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Trainees">
+                                <field name="trainee_ids">
+                                    <tree string="Trainee">
+                                        <field name="trainee_id"/>
+                                        <field name="name"/>
+<!--                                        <field name="email"/>-->
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="bista_training_action_window_2">
+            <field name="name">Bista Training Details</field>
+            <field name="res_model">bista_training.bista_training</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

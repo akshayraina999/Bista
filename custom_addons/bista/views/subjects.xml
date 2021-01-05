@@ -7,11 +7,29 @@
           <field name="arch" type="xml">
              <tree>
                  <field name="name"/>
-<!--                 <field name="topics"/>-->
+                 <field name="topics"/>
                  <field name="trainer"/>
-                 <field name="description"/>
+<!--                 <field name="description"/>-->
              </tree>
           </field>
+        </record>
+
+        <record model="ir.ui.view" id="bista_subjects_form_view">
+            <field name="name">Subject Form View</field>
+            <field name="model">subjects.subjects</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="topics"/>
+                                <field name="trainer"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
         </record>
 
       <record model="ir.actions.act_window" id="bista.action_window_subjects">

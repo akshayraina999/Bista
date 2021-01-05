@@ -1,58 +1,82 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data>
-        <record model="ir.ui.view" id="batch_view_list">
-            <field name="name">Batch View</field>
-            <field name="model">bista_batch</field>
+        <record model="ir.ui.view" id="bista_batch_list">
+            <field name="name">Bista Batch List</field>
+            <field name="model">bista_batch.bista_batch</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="name"/>
+                    <field name="batch_name"/>
                     <field name="start_date"/>
                     <field name="end_date"/>
-                    <field name="location"/>
-                    <field name="stages"/>
-                    <field name="state"/>
-<!--                    <field name="trainee"/>-->
-<!--                    <field name="trainer"/>-->
-                    <field name="training_topic"/>
+                    <field name="topics"/>
                 </tree>
             </field>
         </record>
 
-        <record model="ir.ui.view" id="batch_view_form">
-            <field name="name">Batch View Form</field>
-            <field name="model">bista_batch</field>
+        <record model="ir.ui.view" id="bista_batch_form">
+            <field name="name">Bista Batch Form</field>
+            <field name="model">bista_batch.bista_batch</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
                         <group>
                             <group>
-                                <field name="name"/>
+                                <field name="batch_name"/>
+                                <field name="location"/>
+                            </group>
+                            <group>
                                 <field name="start_date"/>
                                 <field name="end_date"/>
                             </group>
                             <group>
-                                <field name="location"/>
-                                <field name="stages"/>
-                                <field name="state"/>
-                            </group>
-                            <group>
-<!--                                <field name="trainee"/>-->
-<!--                                <field name="trainer"/>-->
-                                <field name="training_topic"/>
+                                <field name="topics"/>
                             </group>
                         </group>
+
+                        <notebook>
+                            <page string="Trainee">
+                                <field name="trainee">
+                                    <tree editable="bottom">
+                                        <field name="trainee_record"/>
+                                        <field name="x"/>
+                                    </tree>
+                                    <form>
+                                        <field name="trainee_record"/>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Trainers">
+                                <field name="trainers">
+                                    <tree editable="bottom">
+                                        <field name="trainer_record"/>
+                                        <field name="y"/>
+                                    </tree>
+                                    <form>
+                                        <field name="trainer_record"/>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Topic">
+                                <field name="topics">
+                                    <tree editable="bottom">
+                                        <field name="topic_name"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
                     </sheet>
                 </form>
             </field>
         </record>
 
-        <record model="ir.actions.act_window" id="batch_action_window">
-          <field name="name">Bista Batch</field>
-          <field name="res_model">bista_batch</field>
-          <field name="view_mode">tree,form</field>
+        <record model="ir.actions.act_window" id="bista_batch_action_window">
+            <field name="name">Bista Batch Action</field>
+            <field name="res_model">bista_batch.bista_batch</field>
+            <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem name="Batch View" id="bista_batch_view" parent="bista.menu_5_batch" action="batch_action_window"/>
+        <menuitem name="Batch" id="bista_batch_list_view" parent="bista.menu_5_batch"
+                  action="bista_batch_action_window"/>
     </data>
 </odoo>

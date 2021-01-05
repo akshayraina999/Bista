@@ -6,4 +6,5 @@ access_location,location.location,model_location_location,base.group_user,1,1,1,
 access_subjects,subjects.subjects,model_subjects_subjects,base.group_user,1,1,1,1
 access_training_topic,training_topic.training_topic,model_training_topic_training_topic,base.group_user,1,1,1,1
 access_stages,training_stages.training_stages,model_training_stages,base.group_user,1,1,1,1
-access_batch,bista_batch.bista_batch,model_bista_batch,base.group_user,1,1,1,1
+access_bista_batch,bista_batch.bista_batch,model_bista_batch_bista_batch,base.group_user,1,1,1,1
+access_bista_training,bista_training.bista_training,model_bista_training_bista_training,base.group_user,1,1,1,1

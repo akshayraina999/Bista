@@ -10,3 +10,4 @@ from . import training_subjects
 from . import training_topic
 from . import stages
 from . import batch
+from . import training

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data>
-      <record model="ir.ui.view" id="bista_stages">
+      <record model="ir.ui.view" id="bista_stages_list">
           <field name="name">bista stages</field>
           <field name="model">training_stages</field>
           <field name="arch" type="xml">
               <tree>
                   <field name="name"/>
                   <field name="batch"/>
-                  <field name="training"/>
+<!--                  <field name="training"/>-->
               </tree>
           </field>
       </record>
@@ -30,14 +30,15 @@
                       <widget name="web_ribbon" text="Done" bg_color="bg-success" attrs="{'invisible': [('status', '!=', 'done')]}"/>
                       <group>
                           <field name="name" class="oe_inline" style="max-width: 1150px; width:800px"/>
+                          <field name="status" required="1"/>
                       </group>
                       <group>
-                      <group>
-                          <field name="training"/>
-                      </group>
-                      <group>
-                          <field name="batch"/>
-                      </group>
+                          <group>
+                              <field name="training"/>
+                          </group>
+                          <group>
+                              <field name="batch"/>
+                          </group>
                       </group>
                   </sheet>
               </form>

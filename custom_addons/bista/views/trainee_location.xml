@@ -4,7 +4,7 @@
 
         <!-- explicit list view definition -->
         <record model="ir.ui.view" id="loc_list">
-          <field name="name">bista_loc list</field>
+          <field name="name">Trainee Location</field>
           <field name="model">location.location</field>
           <field name="arch" type="xml">
             <tree>
@@ -12,17 +12,15 @@
               <field name="street1"/>
               <field name="street2"/>
               <field name="city"/>
-<!--              <field name="hide"/>-->
               <field name="country_id"/>
               <field name="state_id"/>
-
             </tree>
           </field>
         </record>
 
          <!-- explicit form view definition -->
         <record model="ir.ui.view" id="loc_form">
-          <field name="name">bista_loc form</field>
+          <field name="name">Trainee Location form</field>
           <field name="model">location.location</field>
           <field name="arch" type="xml">
             <form string="Designation">
@@ -49,9 +47,9 @@
 
 
         <record model="ir.actions.act_window" id="location">
-        <field name="name">Location Window</field>
-        <field name="res_model">location.location</field>
-        <field name="view_mode">tree,form</field>
+            <field name="name">Location Window</field>
+            <field name="res_model">location.location</field>
+            <field name="view_mode">tree,form</field>
         </record>
 
 

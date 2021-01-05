@@ -10,4 +10,5 @@ class subjects(models.Model):
     name = fields.Char('Name', required=True)
     description = fields.Html(string='Description')
     topics = fields.One2many('training_topic.training_topic', 'topic_sub', string='Topic')
-    trainer = fields.Many2many('bista_trainer.bista_trainer', string='Trainer')
+    # trainer = fields.Many2many('bista_trainer.bista_trainer', string='Trainer')
+    trainer = fields.Many2many('bista.trainer', 'subject_trainer_rel', 'subject_id', 'trainer_id', string="Trainer")

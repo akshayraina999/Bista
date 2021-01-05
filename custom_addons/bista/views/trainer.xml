@@ -16,6 +16,26 @@
       </field>
     </record>
 
+    <record model="ir.ui.view" id="bista_trainer_form_view">
+        <field name="name">Bista Trainer Form</field>
+        <field name="model">bista_trainer.bista_trainer</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="trainer_first_name"/>
+                        </group>
+                        <group>
+                            <field name="trainer_last_name"/>
+                            <field name="subjects"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
     <!-- explicit kanban view -->
     <record id="trainer_kanban" model="ir.ui.view">
@@ -43,6 +63,7 @@
                                     <ul>
                                         <li>First Name : <field name="trainer_first_name"/></li>
                                         <li>Last Name : <field name="trainer_last_name"/></li>
+                                        <li>Subject : <field name="subjects"/></li>
                                     </ul>
                                 </div>
                             </div>
@@ -62,31 +83,6 @@
       <field name="view_mode">tree,form,kanban</field>
     </record>
 
-
-    <!-- server action to the one above -->
-<!--
-    <record model="ir.actions.server" id="bista.action_server">
-      <field name="name">bista server</field>
-      <field name="model_id" ref="model_bista_bista"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
-    </record>
--->
-
-    <!-- Top menu item -->
-
-<!--    <menuitem name="Bista" id="bista.menu_root"/>-->
-
-    <!-- menu categories -->
-
-<!--    <menuitem name="Trainee" id="bista.menu_1_trainee" parent="bista.menu_root"/>-->
-<!--    <menuitem name="Trainer" id="bista.menu_2_trainer" parent="bista.menu_root"/>-->
 
     <!-- actions -->
 

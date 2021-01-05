@@ -7,6 +7,7 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="d_name"/>
+                    <field name="sequence" widget="handle"/>
                 </tree>
             </field>
         </record>
@@ -16,20 +17,26 @@
             <field name="arch" type="xml">
                 <form string="designation">
                     <sheet>
+<!--                        <group>-->
+<!--                            <field name="d_name" placeholder="Name"/>-->
+<!--                            <notebook>-->
+<!--                              <page string="Tasks">-->
+<!--                                <field name="trainee_ids">-->
+<!--                                  <tree string="Trainee" editable="bottom">-->
+<!--                                    <field name="trainee_first_name"/>-->
+<!--                                    <field name="trainee_last_name"/>-->
+<!--                                  </tree>-->
+<!--                                </field>-->
+<!--                              </page>-->
+<!--                              <page string="Schedule">-->
+<!--                              </page>-->
+<!--                            </notebook>-->
+<!--                        </group>-->
                         <group>
-                            <field name="d_name" placeholder="Name"/>
-                            <notebook>
-                              <page string="Tasks">
-                                <field name="trainee_ids">
-                                  <tree string="Trainee" editable="bottom">
-                                    <field name="trainee_first_name"/>
-                                    <field name="trainee_last_name"/>
-                                  </tree>
-                                </field>
-                              </page>
-                              <page string="Schedule">
-                              </page>
-                            </notebook>
+                            <group>
+                                <field name="sequence"/>
+                                <field name="d_name"/>
+                            </group>
                         </group>
                     </sheet>
                 </form>

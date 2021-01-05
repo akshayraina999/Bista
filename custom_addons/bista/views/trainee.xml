@@ -84,7 +84,7 @@
                     <field name="trainee_first_name"/>
                     <field name="trainee_last_name"/>
                     <field name="trainee_id"/>
-                    <field name="training_batch_id"/>
+<!--                    <field name="training_batch_id"/>-->
                     <templates>
                         <t t-name="kanban-box">
                             <div class="oe_kanban_global_click">
@@ -146,7 +146,7 @@
 
     <!-- Top menu item -->
 
-    <menuitem name="Bista" id="bista.menu_root" web_icon="bista, static/description/icon.png"/>
+    <menuitem name="Bista" id="bista.menu_root" web_icon="bista, static/description/bista - Copy.png"/>
 
 
     <!-- menu categories -->

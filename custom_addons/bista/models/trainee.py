@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
+import datetime
+from odoo.exceptions import ValidationError
 
 
 class trainee(models.Model):
@@ -22,12 +24,15 @@ class trainee(models.Model):
         ('other', 'Other')
     ], string="Gender", required='1')
 
-    training_batch_id = fields.Many2one('bista_designation.bista_designation', string='Batch')
-    trainee_id = fields.Char(string='Trainee ID', default=lambda self: _('ID'), required=True, copy=False,
-                             readonly=True,
-                             index=True)
+    training_batch_id = fields.Many2one('bista_training.bista_training', string='Batch')
+    # trainee_id = fields.Char(string='Trainee ID', default=lambda self: _('ID'), required=True, copy=False,
+    #                          readonly=True, index=True)
+    trainee_id = fields.Char(string="Trainee ID", readonly=True, required=True, copy=False, default='/')
+
     trainee_location = fields.Many2one('location.location', string="Location",
                                        help='Location Field')
+
+    designation = fields.Many2one('bista_designation.bista_designation', string='Designation')
 
     state = fields.Selection(
         [('new', 'New'), ('training', 'Training'), ('employed', 'Employed'), ('rejected', 'Rejected')], string='State',
@@ -43,18 +48,24 @@ class trainee(models.Model):
 
     image_1920 = fields.Image('Logo')
 
-    @api.model
-    def create(self, vals):
-        print('@@@', vals)
-        return super(trainee, self).create(vals)
+    # @api.model
+    # def create(self, vals):
+    #     print('@@@', vals)
+    #     return super(trainee, self).create(vals)
+    @api.onchange('dob')
+    def _check_dob_date(self):
+        if self.dob and self.dob > datetime.date.today():
+            raise ValidationError(_('Please enter correct Date of Birth'))
 
     def confirm(self):
         for rec in self:
             rec.state = 'training'
+        return True
 
     def action_rejected(self):
         for rec in self:
             rec.state = 'rejected'
+        return True
 
     def action_employed(self):
         for rec in self:
