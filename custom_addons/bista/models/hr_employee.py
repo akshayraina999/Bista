@@ -8,4 +8,4 @@ class hr_employee(models.Model):
     _inherit = 'hr.employee'
 
 
-    new_ref = fields.Boolean(string="Trainee")
+    is_trainee = fields.Boolean(string="Trainee")

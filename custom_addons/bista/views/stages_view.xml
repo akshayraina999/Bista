@@ -17,27 +17,41 @@
           <field name="name">bista stages form</field>
           <field name="model">training_stages</field>
           <field name="arch" type="xml">
+<!--              <form>-->
+<!--                  <header>-->
+<!--                      <button name="draft" type="object" string="Draft"  class="oe_highlight"/>-->
+<!--                      <button name="progress" type="object" string="Progress"  class="oe_highlight"/>-->
+<!--                      <button name="done" type="object" string="Done" class="oe_highlight"/>-->
+<!--                      <field name="status" widget="statusbar" statusbar_visible="draft,progress,done"/>-->
+<!--                  </header>-->
+<!--                  <sheet>-->
+<!--                      <widget name="web_ribbon" text="Draft" bg_color="bg-primary" attrs="{'invisible': [('status', '!=', 'draft')]}"/>-->
+<!--                      <widget name="web_ribbon" text="Progress" bg_color="bg-warning" attrs="{'invisible': [('status', '!=', 'progress')]}"/>-->
+<!--                      <widget name="web_ribbon" text="Done" bg_color="bg-success" attrs="{'invisible': [('status', '!=', 'done')]}"/>-->
+<!--                      <group>-->
+<!--                          <field name="name" class="oe_inline" style="max-width: 1150px; width:800px"/>-->
+<!--                          <field name="status" required="1"/>-->
+<!--                      </group>-->
+<!--                      <group>-->
+<!--                          <group>-->
+<!--                              <field name="training"/>-->
+<!--                          </group>-->
+<!--                          <group>-->
+<!--                              <field name="batch"/>-->
+<!--                          </group>-->
+<!--                      </group>-->
+<!--                  </sheet>-->
+<!--              </form>-->
               <form>
-                  <header>
-                      <button name="draft" type="object" string="Draft"  class="oe_highlight"/>
-                      <button name="progress" type="object" string="Progress"  class="oe_highlight"/>
-                      <button name="done" type="object" string="Done" class="oe_highlight"/>
-                      <field name="status" widget="statusbar" statusbar_visible="draft,progress,done"/>
-                  </header>
                   <sheet>
-                      <widget name="web_ribbon" text="Draft" bg_color="bg-primary" attrs="{'invisible': [('status', '!=', 'draft')]}"/>
-                      <widget name="web_ribbon" text="Progress" bg_color="bg-warning" attrs="{'invisible': [('status', '!=', 'progress')]}"/>
-                      <widget name="web_ribbon" text="Done" bg_color="bg-success" attrs="{'invisible': [('status', '!=', 'done')]}"/>
-                      <group>
-                          <field name="name" class="oe_inline" style="max-width: 1150px; width:800px"/>
-                          <field name="status" required="1"/>
-                      </group>
                       <group>
                           <group>
-                              <field name="training"/>
+                              <field name="name"/>
+                              <field name="status" required="1"/>
                           </group>
                           <group>
                               <field name="batch"/>
+                              <field name="training"/>
                           </group>
                       </group>
                   </sheet>

@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','mail','hr'],
+    'depends': ['base', 'mail', 'hr'],
 
     # always loaded
     'data': [
@@ -38,6 +38,9 @@
         'views/training_view.xml',
         'views/designation.xml',
         'views/templates.xml',
+
+        'report/reports.xml',
+        'report/reports_template.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

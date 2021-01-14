@@ -2,6 +2,7 @@
 
 from odoo import models, fields, api, _
 
+
 class bista_training(models.Model):
     _name = 'bista_training.bista_training'
     _description = 'Bista Training'

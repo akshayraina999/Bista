@@ -2,6 +2,7 @@
 
 from odoo import models, fields, api
 
+
 class batch(models.Model):
     _name = 'bista_batch.bista_batch'
     _description = 'Bista Batch'
@@ -13,6 +14,9 @@ class batch(models.Model):
     trainee = fields.One2many('trainee_name', 'x', string='Trainee')
     trainers = fields.One2many('trainer_name', 'y', string='Trainer')
     topics = fields.Many2many('training_topic.training_topic', string='Training Topic')
+    stage_id = fields.Many2one('training_stages', string='Stages')
+    state = fields.Selection(related='stage_id.status', string='Status', required=True, default="draft")
+
 
 class batch_trainee(models.Model):
     _name = 'trainee_name'
@@ -20,6 +24,7 @@ class batch_trainee(models.Model):
 
     trainee_record = fields.Many2one('bista_trainee.bista_trainee', string="Trainee", store=True, index=True)
     x = fields.Many2one('bista_batch.bista_batch', string="x")
+    # email = fields.Many2one('bista_trainee.bista_trainee', string='Email')
 
 
 class Batch_trainer_name(models.Model):

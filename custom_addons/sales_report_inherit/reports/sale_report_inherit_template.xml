@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+<!--        <template id="report_saleorder_inherit">-->
+
+<!--            <t t-call="web.html_container">-->
+<!--                &lt;!&ndash;                <t t-call="web.external_layout">&ndash;&gt;-->
+<!--                <t t-set="counter" t-value="0"/>-->
+<!--                <t t-foreach="docs" t-as="doc">-->
+<!--                    <t t-set="counter" t-value="counter + 1"/>-->
+<!--                    <t t-call="web.external_layout">-->
+<!--                        <div class="page">-->
+<!--                            <h1 class="text-left">-->
+<!--                                <font color="#ffb6c1">SALES ORDER</font>-->
+<!--                            </h1>-->
+<!--                            <t>-->
+<!--                                <h5 class="text-right">Date: [Enter a Date]</h5>-->
+<!--                            </t>-->
+<!--                            <t>-->
+<!--                                <h5 class="text-right">Order # [100]</h5>-->
+<!--                            </t>-->
+<!--                        </div>-->
+<!--                        <br></br>-->
+<!--                        <br></br>-->
+<!--                        <table class="table table-striped">-->
+<!--                            <thead>-->
+<!--                                <tr>-->
+<!--                                    <th class="bg-danger" scope="col">-->
+<!--                                        <i>Saleperson</i>-->
+<!--                                    </th>-->
+<!--                                    <th class="bg-danger" scope="col"></th>-->
+<!--                                    <th class="bg-danger" scope="col">-->
+<!--                                        <b>Shipping Methods</b>-->
+<!--                                    </th>-->
+<!--                                    <th class="bg-danger" scope="col">Shipping Terms</th>-->
+<!--                                    <th class="bg-danger" scope="col">Delivery Date</th>-->
+<!--                                    <th class="bg-danger" scope="col">Payment Terms</th>-->
+<!--                                    <th class="bg-danger" scope="col">Due Date</th>-->
+<!--                                </tr>-->
+<!--                            </thead>-->
+<!--                            <tbody>-->
+<!--                                <tr>-->
+<!--                                    <td scope="row"></td>-->
+<!--                                    <td></td>-->
+<!--                                    <td></td>-->
+<!--                                    <td></td>-->
+<!--                                    <td></td>-->
+<!--                                    <td>Due On Receipt</td>-->
+<!--                                    <td></td>-->
+<!--                                </tr>-->
+<!--                            </tbody>-->
+<!--                        </table>-->
+<!--                        <br></br>-->
+<!--                        <br></br>-->
+<!--                        <br></br>-->
+<!--                        <table class="table table-striped">-->
+<!--                            <thead>-->
+<!--                                <tr>-->
+<!--                                    <th class="bg-danger" scope="col">Item #</th>-->
+<!--                                    <th class="bg-danger" scope="col">Description</th>-->
+<!--                                    <th class="bg-danger" scope="col">Quantity</th>-->
+<!--                                    <th class="bg-danger" scope="col">Unit Price</th>-->
+<!--                                    <th class="bg-danger" scope="col">Discount</th>-->
+<!--                                    <th class="bg-danger" scope="col">Line Total</th>-->
+<!--                                </tr>-->
+<!--                            </thead>-->
+<!--                            <tbody>-->
+<!--                                    <tr>-->
+<!--                                        <td scope="row"></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                    </tr>-->
+<!--                                <tr>-->
+<!--                                    <td scope="row"></td>-->
+<!--                                    <td></td>-->
+<!--                                    <td></td>-->
+<!--                                    <td></td>-->
+<!--                                    <td></td>-->
+<!--                                    <td></td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                    <td scope="row"></td>-->
+<!--                                    <td></td>-->
+<!--                                    <td></td>-->
+<!--                                    <td></td>-->
+<!--                                    <td></td>-->
+<!--                                    <td></td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                    <td scope="row"></td>-->
+<!--                                    <td></td>-->
+<!--                                    <td></td>-->
+<!--                                    <td></td>-->
+<!--                                    <td></td>-->
+<!--                                    <td></td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                    <td colspan="4" valign="middle" style="text-align:right">Total Discount</td>-->
+<!--                                    <td></td>-->
+<!--                                    <td></td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                    <td colspan="5" valign="middle" style="text-align:right">Sub Total</td>-->
+<!--                                    <td></td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                    <td colspan="5" valign="middle" style="text-align:right">Sales Tax</td>-->
+<!--                                    <td></td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                    <td colspan="5" valign="middle" style="text-align:right">Total</td>-->
+<!--                                    <td></td>-->
+<!--                                </tr>-->
+<!--                            </tbody>-->
+<!--                        </table>-->
+<!--                        <br></br>-->
+<!--                        <br></br>-->
+<!--                        <br></br>-->
+<!--                        <br></br>-->
+<!--                        <div class="oye"/>-->
+<!--                            <img url="https://qph.fs.quoracdn.net/main-thumb-186024614-200-isenjncfyzwlvtgrshniobvingyvvgnk.jpeg"-->
+<!--                                 alt="Bista Solution"-->
+<!--                                 width="200" height="150" style="float:left"/>-->
+<!--                            <br></br>-->
+<!--                            <br></br>-->
+<!--                    </t>-->
+<!--                </t>-->
+<!--            </t>-->
+<!--        </template>-->
+        <template id="report_saleorder_inherit">
+
+            <t t-call="web.html_container">
+                <!--                <t t-call="web.external_layout">-->
+            <t t-set="counter" t-value="0"/>
+                <t t-foreach="docs" t-as="doc">
+                    <t t-set="counter" t-value="counter + 1"/>
+<!--                    <t t-call="web.external_layout">-->
+                        <div class="page">
+                            <h1 class="text-left">
+                                <font color="#ffb6c1">SALES ORDER</font>
+                            </h1>
+                            <t>
+                                <h5 class="text-right">Date: [Enter a Date]</h5>
+                            </t>
+                            <t>
+                                <h5 class="text-right">Order # [100]</h5>
+                            </t>
+                        </div>
+                        <br></br>
+                        <br></br>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th class="bg-danger" scope="col">
+                                        <i>Saleperson</i>
+                                    </th>
+                                    <th class="bg-danger" scope="col"></th>
+                                    <th class="bg-danger" scope="col">
+                                        <b>Shipping Methods</b>
+                                    </th>
+                                    <th class="bg-danger" scope="col">Shipping Terms</th>
+                                    <th class="bg-danger" scope="col">Delivery Date</th>
+                                    <th class="bg-danger" scope="col">Payment Terms</th>
+                                    <th class="bg-danger" scope="col">Due Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td scope="row"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Due On Receipt</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th class="bg-danger" scope="col">Item #</th>
+                                    <th class="bg-danger" scope="col">Description</th>
+                                    <th class="bg-danger" scope="col">xQuantity</th>
+                                    <th class="bg-danger" scope="col">Unit Price</th>
+                                    <th class="bg-danger" scope="col">Discount</th>
+                                    <th class="bg-danger" scope="col">Line Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td scope="row"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <t t-esc="counter"></t>
+                                <tr>
+                                    <td colspan="4" valign="middle" style="text-align:right">Total Discount</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" valign="middle" style="text-align:right">Sub Total</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" valign="middle" style="text-align:right">Sales Tax</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" valign="middle" style="text-align:right">Total</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <div class="oye">
+                            <img src="https://qph.fs.quoracdn.net/main-thumb-186024614-200-isenjncfyzwlvtgrshniobvingyvvgnk.jpeg"
+                                 alt="Bista Solution"
+                                 width="200" height="150" style="float:left"/>
+                        </div>
+                            <br></br>
+                            <br></br>
+                    </t>
+                </t>
+
+        </template>
+    </data>
+</odoo>
+

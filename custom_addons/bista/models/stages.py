@@ -13,14 +13,14 @@ class training_stages(models.Model):
     status = fields.Selection(
         [('draft','Draft'), ('progress', 'Progress'), ('done', 'Done')], string='Status', default='draft', required=True)
 
-    def draft(self):
-        for rec in self:
-            rec.status = 'draft'
-
-    def progress(self):
-        for rec in self:
-            rec.status = 'progress'
-
-    def done(self):
-        for rec in self:
-            rec.status = 'done'
+    # def draft(self):
+    #     for rec in self:
+    #         rec.status = 'draft'
+    #
+    # def progress(self):
+    #     for rec in self:
+    #         rec.status = 'progress'
+    #
+    # def done(self):
+    #     for rec in self:
+    #         rec.status = 'done'

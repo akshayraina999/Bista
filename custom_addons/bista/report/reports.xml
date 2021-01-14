@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="qweb_report_batch" model="ir.actions.report">
+            <field name="name">Print Batch Report</field>
+            <field name="report_type">qweb-html</field>
+            <field name="report_name">bista.report_batch</field>
+            <field name="report_file">bista.report_batch</field>
+            <field name="model">bista_batch.bista_batch</field>
+            <field name="binding_model_id" ref="model_bista_batch_bista_batch"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

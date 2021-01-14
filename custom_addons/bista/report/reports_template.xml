@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="report_batch">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <h2>Batch Details</h2>
+                            <p>
+                                Batch : <span t-field="o.batch_name"/>
+                            </p>
+                            <p>
+                               Start Date : <span t-field="o.start_date"/>
+                            </p>
+                            <p>
+                               End Date : <span t-field="o.end_date"/>
+                            </p>
+                            <table class="table table-sm table-hover">
+                                <thead class="thead-dark">
+                                    <th>Trainee</th>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="o.trainee" t-as="line">
+                                        <tr>
+                                            <td><span t-field="line.trainee_record"/> </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

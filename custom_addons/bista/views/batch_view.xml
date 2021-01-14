@@ -18,8 +18,25 @@
             <field name="name">Bista Batch Form</field>
             <field name="model">bista_batch.bista_batch</field>
             <field name="arch" type="xml">
-                <form>
+                <form string="Batch Details">
+                    <header>
+                        <field name="stage_id" widget="statusbar" options="{'clickable': '1'}"
+                               domain="[('batch', '=', True)]"/>
+                    </header>
                     <sheet>
+                        <widget name="web_ribbon" text="Draft" bg_color="bg-danger"
+                                attrs="{'invisible': [('state','!=', 'draft')]}"/>
+                        <widget name="web_ribbon" text="Progress" bg_color="bg-warning"
+                                attrs="{'invisible': [('state','!=', 'progress')]}"/>
+                        <widget name="web_ribbon" text="Done" bg_color="bg-success"
+                                attrs="{'invisible': [('state', '!=', 'done')]}"/>
+
+
+                        <div class="oe_title">
+                            <h1>
+                                <field name="batch_name" readonly="True"/>
+                            </h1>
+                        </div>
                         <group>
                             <group>
                                 <field name="batch_name"/>
@@ -31,6 +48,7 @@
                             </group>
                             <group>
                                 <field name="topics"/>
+                                <field name="state" invisible="1"/>
                             </group>
                         </group>
 
@@ -39,7 +57,8 @@
                                 <field name="trainee">
                                     <tree editable="bottom">
                                         <field name="trainee_record"/>
-                                        <field name="x"/>
+                                        <field name="x" invisible="1"/>
+<!--                                        <field name="email"/>-->
                                     </tree>
                                     <form>
                                         <field name="trainee_record"/>
@@ -50,7 +69,7 @@
                                 <field name="trainers">
                                     <tree editable="bottom">
                                         <field name="trainer_record"/>
-                                        <field name="y"/>
+                                        <field name="y" invisible="1"/>
                                     </tree>
                                     <form>
                                         <field name="trainer_record"/>
@@ -71,7 +90,7 @@
         </record>
 
         <record model="ir.actions.act_window" id="bista_batch_action_window">
-            <field name="name">Bista Batch Action</field>
+            <field name="name">Batch Action</field>
             <field name="res_model">bista_batch.bista_batch</field>
             <field name="view_mode">tree,form</field>
         </record>
